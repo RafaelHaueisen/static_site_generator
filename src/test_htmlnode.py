@@ -12,7 +12,7 @@ class TestHTMLNode(unittest.TestCase):
     def test_props_to_html_empty(self):
         node = HTMLNode(tag="div")
         result = node.props_to_html()
-        expected = None
+        expected = ''
         self.assertEqual(result, expected)
 
     def test_props_to_html_single(self):
