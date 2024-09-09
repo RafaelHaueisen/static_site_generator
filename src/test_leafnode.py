@@ -22,8 +22,9 @@ class TestLeafNode(unittest.TestCase):
 
     def test_to_html_with_tag_but_empty_value(self):
         node = LeafNode(tag="p", value="")
-        with self.assertRaises(ValueError):
-            node.to_html() 
+        result = node.to_html()
+        expected = "<p></p>"
+        self.assertEqual(result, expected) 
         
     def test_to_html_with_tag_value_and_props(self):
         node = LeafNode("a", "Click me!", {"href": "https://www.google.com"})
