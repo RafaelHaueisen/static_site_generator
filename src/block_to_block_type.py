@@ -1,6 +1,7 @@
 def block_to_block_type(md_block):
     lines = md_block.split("/n")
-    
+    lines = [x for x in lines if x != ""]
+
     if (md_block.startswith("# ") 
         or md_block.startswith("## ")
         or md_block.startswith("### ")
