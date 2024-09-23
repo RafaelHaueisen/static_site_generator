@@ -9,7 +9,7 @@ def block_to_block_type(md_block):
         or md_block.startswith("##### ")
         or md_block.startswith("###### ")):
         return "heading"
-    elif md_block.startswith("```") and md_block.startswith("```", -3):
+    elif md_block.startswith("```") and md_block.endswith("```"):
         return "code"
     elif md_block.startswith("> "):
         for line in lines:
