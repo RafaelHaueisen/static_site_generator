@@ -1,5 +1,6 @@
 import os
 import shutil
+from genpage import generate_page
 
 def copy_directory(src, dst):
     # Delete the destination directory if it exists
@@ -28,6 +29,12 @@ def main():
     source_dir = 'static'
     destination_dir = 'public'
     copy_directory(source_dir, destination_dir)
+
+    from_path = 'content/index.md'
+    template_path = 'template.html'
+    dest_path = 'public/index.html'
+
+    generate_page(from_path, template_path, dest_path)
 
 if __name__ == "__main__":
     main()
