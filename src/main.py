@@ -1,6 +1,11 @@
 import os
 import shutil
-from genpage import generate_page
+from genpage import generate_pages_recursive
+
+dir_path_static = "./static"
+dir_path_public = "./public"
+dir_path_content = "./content"
+template_path = "./template.html"
 
 def copy_directory(src, dst):
     # Delete the destination directory if it exists
@@ -26,15 +31,10 @@ def copy_directory(src, dst):
             copy_directory(src_path, dst_path)  # Recurse into subdirectory
 
 def main():
-    source_dir = 'static'
-    destination_dir = 'public'
-    copy_directory(source_dir, destination_dir)
+    copy_directory(dir_path_static, dir_path_public)
 
-    from_path = 'content/index.md'
-    template_path = 'template.html'
-    dest_path = 'public/index.html'
-
-    generate_page(from_path, template_path, dest_path)
+    print("Generating content...")
+    generate_pages_recursive(dir_path_content, template_path, dir_path_public)
 
 if __name__ == "__main__":
     main()
